@@ -20,14 +20,14 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 public class WeatherSensorMicroSensorApplication {
 
-	final static String queueName = "arduino-weather-sensor-queue";
+	final static String queueName = "arduino-weather-queue";
 	
 	@Autowired
 	RabbitTemplate rabbitTemplate;
 	
 	@Bean
 	Queue queue() {
-		return new Queue(queueName, false);
+		return new Queue(queueName, true);
 	}
 
 	@Bean
