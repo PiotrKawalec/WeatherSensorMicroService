@@ -32,12 +32,12 @@ public class WeatherSensorMicroSensorApplication {
 
 	@Bean
 	TopicExchange exchange() {
-		return new TopicExchange("arduino-weather-exchange");
+		return new TopicExchange("arduino-iot-exchange", true, false);
 	}
 
 	@Bean
 	Binding binding(Queue queue, TopicExchange exchange) {
-		return BindingBuilder.bind(queue).to(exchange).with(queueName);
+		return BindingBuilder.bind(queue).to(exchange).with("arduino-weather");
 	}
 	
 	@Bean
