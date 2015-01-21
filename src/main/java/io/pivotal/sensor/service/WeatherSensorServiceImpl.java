@@ -16,8 +16,8 @@ public class WeatherSensorServiceImpl implements WeatherSensorService {
 	private WeatherSensorRepository repository;
 	
 	@Override
-	public void saveWeatherSensorReading(Weather weather) {
-		repository.save(weather);
+	public Weather saveWeatherSensorReading(Weather weather) {
+		return repository.save(weather);
 	}
 
 	@Override

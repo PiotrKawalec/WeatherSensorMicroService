@@ -1,4 +1,4 @@
-package io.pivotal.sensor;
+package io.pivotal.sensor.messaging;
 
 import io.pivotal.sensor.model.Weather;
 import io.pivotal.sensor.service.WeatherSensorService;
