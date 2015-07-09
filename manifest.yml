@@ -1,6 +1,6 @@
 ---
 applications:
 - name: weather-sensors-ms
-  memory: 1G 
   instances: 1
+  no-route: true
   path: ./build/libs/sensors-0.0.1-SNAPSHOT.jar
