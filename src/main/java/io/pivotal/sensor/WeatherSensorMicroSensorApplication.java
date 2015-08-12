@@ -14,9 +14,17 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
+@ComponentScan
 @SpringBootApplication
+@EnableEurekaClient
+@EnableDiscoveryClient
 public class WeatherSensorMicroSensorApplication {
 
 	final static String queueName = "arduino-weather-queue";
@@ -59,34 +67,34 @@ public class WeatherSensorMicroSensorApplication {
 		return container;
 	}
 	
-	@Bean
-	SimpleMessageListenerContainer containerGas(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapterGas) {
-		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-		container.setConnectionFactory(connectionFactory);
-		container.setQueueNames(queueNameGas);
-		container.setMessageListener(listenerAdapterGas);
-		return container;
-	}
+//	@Bean
+//	SimpleMessageListenerContainer containerGas(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapterGas) {
+//		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+//		container.setConnectionFactory(connectionFactory);
+//		container.setQueueNames(queueNameGas);
+//		container.setMessageListener(listenerAdapterGas);
+//		return container;
+//	}
 	
 	@Bean
 	TempHumidityReceiver receiver() {
         return new TempHumidityReceiver();
     }
 	
-	@Bean
-	GasSmokeReceiver receiverGas() {
-        return new GasSmokeReceiver();
-    }
+//	@Bean
+//	GasSmokeReceiver receiverGas() {
+//        return new GasSmokeReceiver();
+//    }
 
 	@Bean
 	MessageListenerAdapter listenerAdapter(TempHumidityReceiver receiver) {
 		return new MessageListenerAdapter(receiver, "receiveMessage");
 	}
 	
-	@Bean
-	MessageListenerAdapter listenerAdapterGas(GasSmokeReceiver gasSmokeReceiver) {
-		return new MessageListenerAdapter(gasSmokeReceiver, "receiveGasMessage");
-	}
+//	@Bean
+//	MessageListenerAdapter listenerAdapterGas(GasSmokeReceiver gasSmokeReceiver) {
+//		return new MessageListenerAdapter(gasSmokeReceiver, "receiveGasMessage");
+//	}
 	
     public static void main(String[] args) {
         SpringApplication.run(WeatherSensorMicroSensorApplication.class, args);

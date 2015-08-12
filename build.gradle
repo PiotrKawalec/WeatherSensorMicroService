@@ -7,6 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
     }
 }
 
@@ -14,6 +15,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'io.spring.dependency-management' 
 
 
 jar {
@@ -36,6 +38,13 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	//compile("org.springframework.boot:spring-boot-starter-cloud-connectors")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+}
+
+dependencyManagement {
+	imports { 
+		mavenBom "org.springframework.cloud:spring-cloud-starter-parent:Angel.SR3" 
+	}
 }
 
 eclipse {

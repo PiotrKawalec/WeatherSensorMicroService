@@ -10,5 +10,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="lib" path="/Users/pkawalec/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-commons/1.0.2.RELEASE/9a6358910c6e11cc703d77043922c229b2bb43fa/spring-cloud-commons-1.0.2.RELEASE.jar" sourcepath="/Users/pkawalec/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-commons/1.0.2.RELEASE/dbff1bb495317db5c75282ba6a1050d513f91dee/spring-cloud-commons-1.0.2.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/pkawalec/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-netflix-core/1.0.3.RELEASE/431522e99604075fd56721a07b480db8e5c9ec33/spring-cloud-netflix-core-1.0.3.RELEASE.jar" sourcepath="/Users/pkawalec/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-netflix-core/1.0.3.RELEASE/e9fa4e6b0fd377f35480589c8a4354d873b30df2/spring-cloud-netflix-core-1.0.3.RELEASE-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
