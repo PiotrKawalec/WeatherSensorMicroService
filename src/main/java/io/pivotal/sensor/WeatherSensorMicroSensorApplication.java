@@ -20,11 +20,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@ComponentScan
 @SpringBootApplication
 @EnableEurekaClient
-@EnableDiscoveryClient
 public class WeatherSensorMicroSensorApplication {
 
 	final static String queueName = "arduino-weather-queue";
