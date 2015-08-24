@@ -1,17 +1,25 @@
 package io.pivotal.sensor.messaging;
 
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import io.pivotal.sensor.model.Weather;
 import io.pivotal.sensor.service.WeatherSensorService;
 
 import java.util.Date;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@EnableCircuitBreaker
+@EnableHystrixDashboard
 public class TempHumidityReceiver {
 
 	@Autowired
 	private WeatherSensorService weatherSensorService;
 	
+	@HystrixCommand(fallbackMethod = "weatherDefaultFallback")
 	public void receiveMessage(byte[] message) {
 		//TODO need to work out message here!
 		//SensorId,temp,humidity
@@ -37,4 +45,7 @@ public class TempHumidityReceiver {
 		}
 	}
 	
+	public String weatherDefaultFallback(byte[] message) {
+        return "Weather fallback method";
+	}
 }

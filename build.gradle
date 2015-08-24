@@ -31,6 +31,8 @@ repositories {
 
 dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix")
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix-dashboard")
     testCompile("org.springframework.boot:spring-boot-starter-test") 
 }
 dependencyManagement {
@@ -49,6 +51,7 @@ dependencies {
 	//compile("org.springframework.boot:spring-boot-starter-cloud-connectors")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
 }
 
 eclipse {
